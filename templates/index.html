@@ -1,0 +1,43 @@
+{% load staticfiles %}
+{% load i18n admin_static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>django model form</title>
+     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+<div style="width: 980px;margin: 0 auto">
+
+    <div class="col-lg-6">
+         <h3>添加图书</h3>
+        <ul>
+        <form action="{% url 'drfapp:index' %}" method="POST">
+            {{ form.as_p }}
+            <input class="btn btn-primary m-r-5 m-b-5" type="submit" value="提交">
+        </form>
+            </ul>
+    </div>
+    <div>
+        <h3>当前图书信息</h3>
+    <ul>
+        {%  for k,v in d.items %}
+
+            <li>
+                书名{{ forloop.counter }}：{{ k}}
+            作者：{{v.auth}}
+                出版时间：{{ v.datatime}}
+                出版社：{{ v.pub}}
+            <a href="{% url 'drfapp:book_delete' v.id %}">删除</a>
+                <a href="{% url 'drfapp:book_edit' v.id %}">编辑</a>
+            </li>
+
+        {% endfor %}
+    </ul>
+    </div>
+</div>
+
+</body>
+</html>

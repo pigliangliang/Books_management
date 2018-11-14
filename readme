@@ -1,0 +1,14 @@
+drfapp中实现简单的图书管理增删改查的管理系统
+  基于函数视图方式
+  三张表 pulisher
+        book
+
+            多对多 author 表
+            多对一 publiser 表
+        author
+  基于orm增删改查功能
+
+
+
+
+
